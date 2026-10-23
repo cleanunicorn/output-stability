@@ -1,0 +1,10 @@
+[
+  {
+    "role": "system",
+    "content": "You are a careful assistant. Think through the problem before answering."
+  },
+  {
+    "role": "user",
+    "content": "A warehouse has 137 boxes. Each contains 24 items. It ships 19 boxes and then receives 83 loose items. How many items remain? Explain your reasoning and finish with the total."
+  }
+]

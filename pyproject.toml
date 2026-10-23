@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "output-stability-lab"
+version = "0.1.0"
+description = "Local experiments for reasoning model output reproducibility"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+inference = ["llama-cpp-python==0.3.16"]
+
+[project.scripts]
+stability-lab = "stability_lab:main"
+
+[tool.setuptools]
+py-modules = ["stability_lab"]

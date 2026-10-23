@@ -1,0 +1,79 @@
+{
+  "model": "models/model.gguf",
+  "repeats": 3,
+  "timeout_seconds": 0,
+  "process_mode": "warm",
+  "load": {
+    "n_ctx": 32768,
+    "n_threads": 8,
+    "n_threads_batch": 12,
+    "n_gpu_layers": -1,
+    "use_mmap": true,
+    "flash_attn": true
+  },
+  "generate": {
+    "seed": 42,
+    "temperature": 0.0,
+    "top_k": 40,
+    "top_p": 0.95,
+    "max_tokens": -1
+  },
+  "prompts": [
+    {
+      "name": "arithmetic",
+      "file": "prompts/arithmetic.chat.json",
+      "format": "chat"
+    },
+    {
+      "name": "planning",
+      "file": "prompts/planning.chat.json",
+      "format": "chat"
+    },
+    {
+      "name": "scheduling",
+      "file": "prompts/scheduling.chat.json",
+      "format": "chat"
+    }
+  ],
+  "variants": [
+    {
+      "name": "threads-4",
+      "load": {
+        "n_threads": 4
+      }
+    },
+    {
+      "name": "batch-threads-4",
+      "load": {
+        "n_threads_batch": 4
+      }
+    },
+    {
+      "name": "context-8192",
+      "load": {
+        "n_ctx": 8192
+      }
+    },
+    {
+      "name": "temperature-0.6",
+      "generate": {
+        "temperature": 0.6
+      }
+    },
+    {
+      "name": "top-p-0.8",
+      "generate": {
+        "top_p": 0.8
+      }
+    },
+    {
+      "name": "seed-43-greedy",
+      "generate": {
+        "seed": 43
+      }
+    }
+  ],
+  "backend": "llama_server",
+  "server_binary": "llama-server",
+  "reasoning": true
+}

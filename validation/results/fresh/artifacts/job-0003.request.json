@@ -1,0 +1,25 @@
+{
+  "backend": "llama_cpp",
+  "model": "/workspace/output-stability-lab/models/Qwen3-0.6B-Q8_0.gguf",
+  "load": {
+    "n_ctx": 2048,
+    "n_threads": 4,
+    "n_threads_batch": 1,
+    "n_gpu_layers": 0
+  },
+  "generate": {
+    "seed": 42,
+    "temperature": 0.0,
+    "top_k": 40,
+    "top_p": 0.95,
+    "max_tokens": 128,
+    "stop": [
+      "<|im_end|>"
+    ]
+  },
+  "python": "/workspace/output-stability-lab/.venv/bin/python",
+  "env": {},
+  "prompt": "<|im_start|>system\nYou are a careful assistant. Think through the problem before answering.\n<|im_end|>\n<|im_start|>user\nA warehouse has 137 boxes. Each contains 24 items. It ships 19 boxes and then receives 83 loose items. How many items remain? Explain your reasoning and finish with the total.\n<|im_end|>\n<|im_start|>assistant\n",
+  "repeats": 1,
+  "trial_offset": 0
+}

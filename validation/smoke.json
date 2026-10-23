@@ -1,0 +1,13 @@
+{
+  "model": "../models/Qwen3-0.6B-Q8_0.gguf",
+  "repeats": 2,
+  "process_mode": "fresh",
+  "load": {"n_ctx": 2048, "n_threads": 1, "n_threads_batch": 1, "n_gpu_layers": 0},
+  "generate": {"seed": 42, "temperature": 0.0, "top_k": 40, "top_p": 0.95, "max_tokens": 128, "stop": ["<|im_end|>"]},
+  "prompts": [{"name": "arithmetic", "file": "../prompts/arithmetic.txt"}],
+  "variants": [
+    {"name": "threads-4", "load": {"n_threads": 4}},
+    {"name": "seed-43-greedy", "generate": {"seed": 43}},
+    {"name": "temperature-0.6", "generate": {"temperature": 0.6}}
+  ]
+}

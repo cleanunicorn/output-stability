@@ -1,0 +1,33 @@
+<|im_start|>system
+You are a careful assistant. Think through the problem before answering.
+<|im_end|>
+<|im_start|>user
+Solve this scheduling problem without running code or using external tools.
+
+Two workers, W1 and W2, must complete the jobs below. Either worker can perform any job. Each job requires exactly one worker for its entire duration, and a worker can perform only one job at a time. Jobs cannot be paused, split, or transferred between workers.
+
+| Job | Duration in minutes | Jobs that must finish before it starts |
+|---|---:|---|
+| A | 3 | None |
+| B | 4 | None |
+| C | 5 | None |
+| D | 4 | A, B, and C |
+| E | 2 | D |
+| F | 2 | D |
+| G | 3 | None |
+
+Time starts at 0. There is no setup time. A job may start at the exact moment its prerequisites finish or its worker becomes free.
+
+Part 1: Both workers are available from time 0. Find the earliest possible completion time for all seven jobs.
+
+Part 2: Solve the problem again with W2 unavailable until time 3. All other conditions remain the same.
+
+For each part, provide:
+
+1. The minimum completion time.
+2. A table listing each job’s worker, start time, and end time.
+3. A concise mathematical justification that no faster schedule is possible. A valid schedule alone does not establish optimality.
+
+Finally, explain whether dividing total work by two and checking the longest prerequisite chain is sufficient to establish the optimum in Part 1.
+<|im_end|>
+<|im_start|>assistant

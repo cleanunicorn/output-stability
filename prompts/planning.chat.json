@@ -1,0 +1,10 @@
+[
+  {
+    "role": "system",
+    "content": "You are a careful assistant. Think through the problem before answering."
+  },
+  {
+    "role": "user",
+    "content": "Find an order for five tasks A, B, C, D, E. A must precede C. B must follow D. E must precede both A and D. C must not be last. Explain your reasoning and give one valid order."
+  }
+]

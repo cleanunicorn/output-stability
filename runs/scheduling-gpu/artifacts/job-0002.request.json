@@ -1,0 +1,36 @@
+{
+  "backend": "llama_server",
+  "model": "/home/daniel/.local/share/drove/models/unsloth/gemma-4-E4B-it-GGUF:Q4_K_M/gemma-4-E4B-it-Q4_K_M.gguf",
+  "load": {
+    "n_ctx": 32768,
+    "n_threads": 4,
+    "n_threads_batch": 12,
+    "n_gpu_layers": -1,
+    "use_mmap": true,
+    "flash_attn": true
+  },
+  "generate": {
+    "seed": 42,
+    "temperature": 0.0,
+    "max_tokens": -1,
+    "top_k": 40,
+    "top_p": 0.95
+  },
+  "python": "/usr/bin/python3",
+  "env": {},
+  "server_binary": "llama-server",
+  "reasoning": true,
+  "prompt": "[\n  {\n    \"role\": \"system\",\n    \"content\": \"You are a careful assistant. Think through the problem before answering.\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"Solve this scheduling problem without running code or using external tools.\\n\\nTwo workers, W1 and W2, must complete the jobs below. Either worker can perform any job. Each job requires exactly one worker for its entire duration, and a worker can perform only one job at a time. Jobs cannot be paused, split, or transferred between workers.\\n\\n| Job | Duration in minutes | Jobs that must finish before it starts |\\n|---|---:|---|\\n| A | 3 | None |\\n| B | 4 | None |\\n| C | 5 | None |\\n| D | 4 | A, B, and C |\\n| E | 2 | D |\\n| F | 2 | D |\\n| G | 3 | None |\\n\\nTime starts at 0. There is no setup time. A job may start at the exact moment its prerequisites finish or its worker becomes free.\\n\\nPart 1: Both workers are available from time 0. Find the earliest possible completion time for all seven jobs.\\n\\nPart 2: Solve the problem again with W2 unavailable until time 3. All other conditions remain the same.\\n\\nFor each part, provide:\\n\\n1. The minimum completion time.\\n2. A table listing each job’s worker, start time, and end time.\\n3. A concise mathematical justification that no faster schedule is possible. A valid schedule alone does not establish optimality.\\n\\nFinally, explain whether dividing total work by two and checking the longest prerequisite chain is sufficient to establish the optimum in Part 1.\"\n  }\n]\n",
+  "repeats": 4,
+  "trial_offset": 0,
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a careful assistant. Think through the problem before answering."
+    },
+    {
+      "role": "user",
+      "content": "Solve this scheduling problem without running code or using external tools.\n\nTwo workers, W1 and W2, must complete the jobs below. Either worker can perform any job. Each job requires exactly one worker for its entire duration, and a worker can perform only one job at a time. Jobs cannot be paused, split, or transferred between workers.\n\n| Job | Duration in minutes | Jobs that must finish before it starts |\n|---|---:|---|\n| A | 3 | None |\n| B | 4 | None |\n| C | 5 | None |\n| D | 4 | A, B, and C |\n| E | 2 | D |\n| F | 2 | D |\n| G | 3 | None |\n\nTime starts at 0. There is no setup time. A job may start at the exact moment its prerequisites finish or its worker becomes free.\n\nPart 1: Both workers are available from time 0. Find the earliest possible completion time for all seven jobs.\n\nPart 2: Solve the problem again with W2 unavailable until time 3. All other conditions remain the same.\n\nFor each part, provide:\n\n1. The minimum completion time.\n2. A table listing each job’s worker, start time, and end time.\n3. A concise mathematical justification that no faster schedule is possible. A valid schedule alone does not establish optimality.\n\nFinally, explain whether dividing total work by two and checking the longest prerequisite chain is sufficient to establish the optimum in Part 1."
+    }
+  ]
+}
